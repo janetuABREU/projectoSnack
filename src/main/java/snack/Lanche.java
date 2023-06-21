@@ -36,7 +36,7 @@ public class Lanche extends Prato{
         return pao;
     }
     public String toString(){
-        return "Lanche: " + "       Molho: "+ molho +";"+" Recheio: " + recheio +";"+ " PÃ£o: " +pao +";";
+        return "Lanche: " + "       Molho: "+ molho +";"+" Recheio: " + recheio +";"+ " PÃ£o: " +pao +" ;" + "Preço: "+super.getPreco()+ ";";
     }
 
 

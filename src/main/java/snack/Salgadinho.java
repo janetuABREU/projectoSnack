@@ -6,11 +6,11 @@ package snack;
 
 public class Salgadinho extends Prato {
     String recheio;
-    String massa;
+   // String massa;
     String tipo;
 
-    Salgadinho(String tipo, String recheio, String massa){
-        setMassa(massa);
+    Salgadinho(String tipo, String recheio){
+       // setMassa(massa);
         setRecheio(recheio);
         setTipo(tipo);
     }
@@ -20,14 +20,14 @@ public class Salgadinho extends Prato {
     @Override
     public void setRecheio(String recheio) {this.recheio=recheio;
     }
-    public void setMassa(String massa) {this.massa=massa;
-    }
+   /* public void setMassa(String massa) {this.massa=massa;
+    }*/
     @Override
      public String getRecheio(){return recheio;}
     public String getTipo(){return tipo;}
-    public String getMassa(){return massa;}
+   // public String getMassa(){return massa;}
     public String toString(){
-        return "Salgadinho: " + "       Massa: "+ massa +";" +" Recheio: " + recheio +";"+" Tipo: " + tipo +";";
+        return "Salgadinho: " + "       "+" Recheio: " + recheio +";"+" Tipo: " + tipo +";"+ "Preço: "+super.getPreco()+ ";";
     }
 
 }
