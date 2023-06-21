@@ -33,7 +33,7 @@ public class Pizza extends Prato{
 
     public String toString(){
 
-        return "Pizza: " + "       Molho: "+ molho +";" +" Recheio: " + super.getRecheio() +";" +" Cobertura : " + cobertura +";"+ "Preço: "+super.getPreco()+ ";";
+        return "Pizza: " + "       Molho: "+ molho +";" +" Recheio: " + super.getRecheio() +";" +" Cobertura : " + cobertura +";";
     }
 
 

@@ -21,18 +21,16 @@ public class    Menu{
             System.out.println("1 - Pizza ");
             System.out.println("2 - Lanche");
             System.out.println("3 - Salgados");
-            double preco=0;
             int op = scanner.nextInt();
             switch (op) {
                 case 1:
                     valorBase += 10000 * menuPizza();
-                    
                     break;
                 case 2:
-                    valorBase += 3000 * menuLanche();
+                    valorBase += 1200 * menuLanche();
                     break;
                 case 3:
-                    valorBase += 1500 * menuSalgadinho();
+                    valorBase += 400 * menuSalgadinho();
                     break;
                 default:
                     System.out.println("OpÃ§Ã£o invÃ¡lida.");
@@ -118,7 +116,6 @@ public class    Menu{
         }
         Pizza pizza = new Pizza(molho, recheio, cobertura);
         pizza.setPeso(1.00);
-        pizza.setPreco(10000*pizza.getPeso());
         itensConsumidos.add(pizza);
         return pizza.getPeso();
     }
@@ -142,13 +139,13 @@ public class    Menu{
         int op = scanner.nextInt();
         switch (op) {
             case 1:
-                recheio = "FRANGO";
+                recheio = "Recheio 1";
                 break;
             case 2:
-                recheio = "CARNE";
+                recheio = "Recheio 1";
                 break;
             case 3:
-                recheio = "QUEIJO";
+                recheio = "Recheio 1";
                 break;
             default:
                 System.out.println("OpÃ§Ã£o invÃ¡lida, Recheio nÃ£o definido!");
@@ -163,13 +160,13 @@ public class    Menu{
         int op1 = scanner.nextInt();
         switch (op1) {
             case 1:
-                molho = "MAIONESE";
+                molho = "Molho 1";
                 break;
             case 2:
-                molho = "MOSTARDA";
+                molho = "Molho 2";
                 break;
             case 3:
-                molho = "MOLHO BRANCO";
+                molho = "Molho 3";
                 break;
             default:
                 molho = "Sem Molho";
@@ -183,13 +180,13 @@ public class    Menu{
         int op2 = scanner.nextInt();
         switch (op) {
             case 1:
-                pao = "PÃO SEM GLUTEM";
+                pao = "PÃ£o 1";
                 break;
             case 2:
-                pao = "PÃO INTEGRAL";
+                pao = "PÃ£o 2";
                 break;
             case 3:
-                pao = "PÃO DE FORMA";
+                pao = "PÃ£o 3";
                 break;
             default:
                 System.out.println("OpÃ§Ã£o invÃ¡lida, tipo de PÃ£o nÃ£o definido!");
@@ -197,7 +194,6 @@ public class    Menu{
         }
         Lanche lanche = new Lanche(pao, recheio, molho);
         lanche.setPeso(0.400);
-         lanche.setPreco(3000*0.400);
         itensConsumidos.add(lanche);
         return lanche.getPeso();
     }
@@ -210,32 +206,32 @@ public class    Menu{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Menu Salgadinho:");
         System.out.println("1 - Recheio");
-       // System.out.println("2 - Massa");
+        System.out.println("2 - Massa");
         System.out.println("3 - Tipo do Salgadinho");
 
         String recheio = "", massa = "", tipo = "";
         /**Definindo o tipo de Recheio*/
         System.out.println("\nEscolha o Tipo de Recheio:");
         System.out.println("1 - FRANGO");
-        System.out.println("2 - CAMARÃO ");
+        System.out.println("2 - CAMARAO ");
         System.out.println("3 - CARNE");
         int op = scanner.nextInt();
         switch (op) {
             case 1:
-                recheio = "FRANGO";
+                recheio = "Recheio 1";
                 break;
             case 2:
-                recheio = "CAMARÃO";
+                recheio = "Recheio 1";
                 break;
             case 3:
-                recheio = "CARNE";
+                recheio = "Recheio 1";
                 break;
             default:
                 System.out.println("OpÃ§Ã£o invÃ¡lida, Recheio nÃ£o definido!");
                 break;
         }
         /**definindo o tipo de Massa*/
-      /*  System.out.println("\nEscolha o Tipo de Massa:");
+        System.out.println("\nEscolha o Tipo de Massa:");
         System.out.println("1 - Massa 1");
         System.out.println("2 - Massa 2");
         System.out.println("3 - Massa 3");
@@ -253,7 +249,7 @@ public class    Menu{
             default:
                 System.out.println("OpÃ§Ã£o invÃ¡lida, tipo de Massa nÃ£o definido!");
                 break;
-        }*/
+        }
         /**definindo o tipo de Salgadinho*/
         System.out.println("\nEscolha o Tipo de Salgadinho:");
         System.out.println("1 - Frito");
@@ -270,9 +266,8 @@ public class    Menu{
                 System.out.println("OpÃ§Ã£o invÃ¡lida, tipo de Salgadinho nÃ£o definido!");
                 break;
         }
-        Salgadinho salgadinho = new Salgadinho(tipo, recheio);
+        Salgadinho salgadinho = new Salgadinho(tipo, recheio, massa);
         salgadinho.setPeso(0.200);
-         salgadinho.setPreco(1500*0.200);
         itensConsumidos.add(salgadinho);
         return salgadinho.getPeso();
     }
@@ -280,4 +275,3 @@ public class    Menu{
 
 }
 
- 

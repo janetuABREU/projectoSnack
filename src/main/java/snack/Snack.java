@@ -3,10 +3,7 @@ package snack;
 import java.util.Scanner;
 
 public class Snack {
-   public static Cliente cliente = new Cliente();
 
-
-    
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -15,31 +12,21 @@ public class Snack {
         String nomeCliente = scanner.nextLine();
 
 
-        System.out.print("Digite o seu código: ");
+        System.out.print("Digite o seu cÃ³digo: ");
         int codigoCliente = scanner.nextInt();
-        System.out.print("Digite o seu Endereço: ");
-       String endereco = scanner.nextLine();
-        scanner.nextLine();
-        System.out.print("Digite o seu Contacto: ");
-       String contacto = scanner.nextLine();
+        Cliente cliente = new Cliente(nomeCliente, codigoCliente);
 
-        
-         cliente.setCliente_nome(nomeCliente);
-        cliente.setCliente_codigo(codigoCliente);
-        cliente.setEndereco(endereco);
-        cliente.setContacto(contacto);
-        System.out.println("Bem-vindo(a), " + cliente.getCliente_nome() + "!");
-        double taxaServico=2000;
+        System.out.println("Bem-vindo(a), " + cliente.getNome() + "!");
 
         Menu menu = new Menu();
-        double valorTotal = menu.menu()+taxaServico;
+        double valorTotal = menu.menu();
 
         double valorPago = receberValorPago(valorTotal);
         if (valorPago == 0) {
-            System.out.println("Compra não efectuada!");
+            System.out.println("Compra nÃ£o efectuada!");
         } else {
             double troco = calcularTroco(valorTotal, valorPago);
-            exibirFatura(nomeCliente, codigoCliente, valorTotal, valorPago, troco,taxaServico);
+            exibirFatura(nomeCliente, codigoCliente, valorTotal, valorPago, troco);
             scanner.close();
         }
 
@@ -47,25 +34,16 @@ public class Snack {
 
 
 
-   public static double receberValorPago(double valorTotal) {
+    public static double receberValorPago(double valorTotal) {
 
-        for (; ; ) {
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Digite o valor pago: ");
-            double valorPago = scanner.nextDouble();
-
-            if (valorPago < valorTotal) {
-                System.out.println("O valor pago é inferior ao valor total!");
-                System.out.println("\n Deseja: ");
-                System.out.println("1- Sair | 2- Digitar outro valor");
-                int op=scanner.nextInt();
-                if (op==1){return 0;}
-                else {continue;}
-            } else {
-                return valorPago;
-            }
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o valor pago: ");
+        double valorPago = scanner.nextDouble();
+        if (valorPago < valorTotal) {
+            System.out.println("O valor pago Ã© inferior ao valor total!");
+            return 0;
+        } else {
+            return valorPago;
         }
     }
 
@@ -73,7 +51,7 @@ public class Snack {
         return valorPago - valorTotal;
     }
 
-    public static void exibirFatura(String nomeCliente, int codigoCliente, double valorTotal, double valorPago, double troco, double taxaServico) {
+    public static void exibirFatura(String nomeCliente, int codigoCliente, double valorTotal, double valorPago, double troco) {
         System.out.println("===== FATURA =====");
 
         System.out.println("Nome do Cliente: " + nomeCliente);
@@ -83,14 +61,11 @@ public class Snack {
         int i = 0;
         for (Prato iten : Menu.itensConsumidos) {
             System.out.print((i + 1) + "- ");
-            i++;
             System.out.println(iten.toString());
         }
-        System.out.println("taxa serviço:kz"+ taxaServico);
         System.out.println("Valor total: kz " + valorTotal);
         System.out.println("Valor pago: kz " + valorPago);
         System.out.println("Troco: kz" + troco);
-        
         System.out.println("==================");
     }
 
